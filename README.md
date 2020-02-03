@@ -14,6 +14,7 @@ And
 
 1. Change API URL at `.env.development` [REACT_APP_API_URL]
 2. Change number of row per page at `/src/configs/app-settting.js` [APPSETTING.TableRowPage]
+3. Change app styles at `/src/styles/app-style.scss`
 
 ## App Features
 
@@ -28,10 +29,9 @@ And
 
 ## App Technique
 
-1. Use react-boot for UI design
+1. Use react-bootstrap for UI design
 2. Use redux for global store
-3. Use redux-saga for hadle API
-4. styled-components not necessary for this project
+3. Use redux-saga for handle API
 
 ## Edit API app
 
