@@ -1,0 +1,23 @@
+@import '../../styles/app-style.scss';
+
+.cursor {
+  cursor: pointer;
+}
+
+#search-box {
+  width: 30%;
+  .input-group {
+    input {
+      outline: none;
+      border-radius: 0px;
+      box-shadow: none;
+    }
+    svg {
+      position: absolute;
+      right: 10px;
+      align-self: center;
+      z-index: 10;
+      color: lighten($app-text-color, 40%);
+    }
+  }
+}

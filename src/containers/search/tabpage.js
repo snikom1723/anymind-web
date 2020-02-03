@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import SearchBox from 'components/SearchBox'
-import ResultTable from 'components/ResultTable'
+import SearchBox from 'components/SearchBox/SearchBox'
+import ResultTable from 'components/ResultTable/ResultTable'
 import { connect } from 'react-redux'
 import { AppSeachLoad } from 'stores/app/action'
 
@@ -61,6 +61,7 @@ const TabPage = props => {
         value={search}
         onChange={setSearch}
         onSubmit={onSubmit}
+        focusSearch={props.appReducer.focusSearch}
       />
       <ResultTable
         cols={cols}
@@ -77,4 +78,4 @@ TabPage.propTypes = {
   AppSeachLoad: PropTypes.func
 }
 
-export default connect(null, { AppSeachLoad })(TabPage)
+export default connect(({ appReducer }) => ({ appReducer }), { AppSeachLoad })(TabPage)

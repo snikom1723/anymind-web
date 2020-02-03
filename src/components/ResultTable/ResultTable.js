@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Table, Pagination, Spinner } from 'react-bootstrap'
+import { connect } from 'react-redux'
+
+import './ResultTable.scss'
 
 const ResultTable = props => {
   const { cols, items, pageActive, setPageActive, loading } = props
-  const pageItem = 10
+  const pageItem = props.appReducer.TableRowPage
   //
 
   const [paginItem, setPaginItem] = useState([])
@@ -17,7 +20,7 @@ const ResultTable = props => {
       }
     }
     setPaginItem(pages)
-  }, [items])
+  }, [items, pageItem])
   //
   const onPageChange = e => {
     if (e.target.text && Number(e.target.text) !== pageActive) setPageActive(Number(e.target.text))
@@ -29,9 +32,11 @@ const ResultTable = props => {
       <Table>
         <thead>
           <tr>
-            {cols?.map(col => (
-              <th key={col}>{`${col}`}</th>
-            ))}
+            {/* Css when has items */}
+            {items?.length > 0 &&
+              cols?.map(col => <th key={col} className={items[0][col][1]}>{`${col}`}</th>)}
+            {/* Only column when no data */}
+            {!(items?.length > 0) && cols?.map(col => <th key={col}>{`${col}`}</th>)}
           </tr>
         </thead>
         <tbody>
@@ -86,4 +91,4 @@ ResultTable.propTypes = {
   items: PropTypes.array
 }
 
-export default ResultTable
+export default connect(({ appReducer }) => ({ appReducer }))(ResultTable)

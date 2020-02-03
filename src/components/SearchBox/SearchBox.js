@@ -1,12 +1,18 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Form, InputGroup } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import './SearchBox.scss'
+
 const SearchBox = props => {
-  const { formLabel, placeholder, value, onChange, onSubmit } = props
+  const { formLabel, placeholder, value, onChange, onSubmit, focusSearch } = props
   //
   const refTextbox = useRef(null)
+  //
+  useEffect(() => {
+    focusSearch && refTextbox.current.focus()
+  }, [focusSearch])
   //
   return (
     <Form as="div" id="search-box">

@@ -1,13 +1,31 @@
-import './search.scss'
-import React from 'react'
-// import PropTypes from 'prop-types'
+import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { Tabs, Tab } from 'react-bootstrap'
 import TabPage from './tabpage'
+import { connect } from 'react-redux'
+import { AppFocusSearch } from 'stores/app/action'
 
-const search = props => {
+import './search.scss'
+
+const Search = props => {
+  const { AppFocusSearch } = props
+  //
+  useEffect(() => {
+    AppFocusSearch(true)
+  }, [AppFocusSearch])
+  //
   return (
     <div id="search">
-      <Tabs defaultActiveKey="hashtag">
+      <Tabs
+        defaultActiveKey="hashtag"
+        onClick={e => {
+          //e.target.getAttribute('data-rb-event-key')
+          AppFocusSearch(true)
+          setTimeout(() => {
+            AppFocusSearch(false)
+          }, 100)
+        }}
+      >
         <Tab eventKey="hashtag" title="Hashtag search">
           <TabPage apiName="hashtags" formLabel="Hashtag search" placeholder="Serach by Hashtag" />
         </Tab>
@@ -19,6 +37,8 @@ const search = props => {
   )
 }
 
-search.propTypes = {}
+Search.propTypes = {
+  AppFocusSearch: PropTypes.func
+}
 
-export default search
+export default connect(null, { AppFocusSearch })(Search)
