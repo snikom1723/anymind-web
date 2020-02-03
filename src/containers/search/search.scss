@@ -1,0 +1,102 @@
+@import '../../styles/app-style.scss';
+
+#search {
+  .cursor {
+    cursor: pointer;
+  }
+  .nav.nav-tabs {
+    height: $app-header-height;
+    padding-left: $app-header-height;
+    border: none;
+  }
+  .nav-item.nav-link {
+    border: none;
+    border-radius: 0;
+    outline: none;
+    color: $app-text-color;
+    &.active {
+      color: $app-text-color-active;
+      background-color: $app-bg-selected;
+    }
+  }
+  .tab-content {
+    background-color: $app-bg-selected;
+    min-height: 25vh;
+    padding: 20px 40px;
+  }
+
+  #search-box {
+    width: 30%;
+    .input-group {
+      input {
+        outline: none;
+        border-radius: 0px;
+        box-shadow: none;
+      }
+      svg {
+        position: absolute;
+        right: 10px;
+        align-self: center;
+        z-index: 10;
+        color: lighten($app-text-color, 40%);
+      }
+    }
+  }
+
+  #result-table {
+    background-color: #ffffff;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 50px;
+    thead {
+      th {
+        border: none;
+        border-bottom: $tabe-line-border;
+        color: lighten($app-text-color, 20%);
+        font-weight: 400;
+      }
+    }
+    tbody {
+      td {
+        border: none;
+        border-bottom: $tabe-line-border;
+        div {
+          color: $app-text-color;
+        }
+      }
+    }
+    .col-nodata {
+      text-align: center;
+      color: lighten($color: $app-text-color, $amount: 50%);
+    }
+    .col-text {
+      overflow: visible;
+      white-space: normal;
+    }
+    .col-number {
+      text-align: center;
+    }
+    .col-date {
+      white-space: nowrap;
+    }
+    #pagin {
+      margin-top: 50px;
+
+      .page-item {
+        margin-right: 10px;
+        .page-link {
+          box-shadow: none;
+          border-radius: 0px;
+          color: $app-text-color;
+        }
+        &.active {
+          .page-link {
+            color: #ffffff;
+            background-color: $app-text-color-active;
+            border-color: $app-text-color-active;
+          }
+        }
+      }
+    }
+  }
+}

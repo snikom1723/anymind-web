@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonJS",
+    "target": "es6",
+    "baseUrl": "./src",
+    "paths": {
+      "components": ["./components/*"],
+      "containers": ["./containers/*"],
+      "layouts": ["./layouts/*"],
+      "services": ["./services/*"],
+      "stores": ["./stores/*"]
+    }
+  }
+}
