@@ -12,8 +12,8 @@ And
 
 ## App Configs
 
-1. Change URL API at file `.env.development` [REACT_APP_API_URL]
-2. Change number of row per page at file `/src/configs/app-settting.js` [APPSETTING.TableRowPage]
+1. Change API URL at `.env.development` [REACT_APP_API_URL]
+2. Change number of row per page at `/src/configs/app-settting.js` [APPSETTING.TableRowPage]
 
 ## App Features
 
